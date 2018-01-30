@@ -59,6 +59,12 @@ function mcom()
 
 alias gs='p=$PWD; for i in `find . -name ".git"`; do cd ${i}/../; echo ">>>>>>>>>>>>"; echo $i; git status; echo "<<<<<<<<<<<<<"; cd -; done;'
 alias gpr='p=$PWD; for i in `find . -name ".git"`; do cd ${i}/../; echo ">>>>>>>>>>>>"; echo $i; git pull --rebase; echo "<<<<<<<<<<<<<"; cd -; done;'
+
+alias gerrit='ssh -p 12001 $my-gerrit-server gerrit'                        
+alias gerrit-query='gerrit query'                                               
+#pipe gerrit query with -> '| egrep '^  number' | cut -d\  -f4- > CHANGES_NUMBERS' to get change numbers
+#Reference - https://www.mediawiki.org/wiki/Gerrit/Advanced_usage#Mass-approving_changes_across_repositories
+
 export SERVER_ADDR=android-build-01
 export SERVER_PATH=/home/navneetk/
 export PATH=~/bin:$PATH
