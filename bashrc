@@ -64,6 +64,7 @@ alias gerrit='ssh -p 12001 $my-gerrit-server gerrit'
 alias gerrit-query='gerrit query'                                               
 #pipe gerrit query with -> '| egrep '^  number' | cut -d\  -f4- > CHANGES_NUMBERS' to get change numbers
 #Reference - https://www.mediawiki.org/wiki/Gerrit/Advanced_usage#Mass-approving_changes_across_repositories
+#https://review.openstack.org/Documentation/cmd-query.html
 
 export SERVER_ADDR=android-build-01
 export SERVER_PATH=/home/navneetk/
