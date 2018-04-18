@@ -1,15 +1,16 @@
 #!/bin/bash
-#This script/function generates cscope and tags among a target directories
+# This script/function generates cscope and tags in target directories
 #
-#Usage: . generate_cscope.sh <dir1> <dir2> ...
-#NOTE: using ". <space>" for invocation is necessary since the script also
-#      exports the CSCOPE_DB environment variable at the end. One can edit
-#      the vimrc to do "cs add $CSCOPE_DB"
+# Usage: . generate_cscope.sh <dir1> <dir2> ...
+# NOTE: using ". <space>" for invocation is necessary since the script also
+#      exports the CSCOPE_DB environment variable at the end.
+#      If the script is not sourced into the shell, CSCOPE_DB will not be exported.
+#      One can edit the vimrc to do "cs add $CSCOPE_DB"
 #
-#create /tmp/cscope.files                                                      
-#check dir exists                                                               
-#if exists, run the command to append to cscope.files                           
-#create sha1 of cscope.files and mv the file into /tmp/sha/                     
+# create /tmp/cscope.files                                                      
+# check dir exists                                                               
+# if exists, run the command to append to cscope.files                           
+# create sha1 of cscope.files and mv the file into /tmp/sha/                     
                                                                                 
 if [ "$1" == "" ]; then                                                         
         echo "provide directories as argument"                                  
