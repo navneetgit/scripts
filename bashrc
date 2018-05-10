@@ -46,6 +46,31 @@ function f()
 #	grep -n -r -i -e \"$*\" $dir
 }
 
+#find directories/files upwards
+function findup()                                                               
+{                                                                               
+        args=$#                                                                 
+        if [ $args -lt 1 ]; then                                                
+                echo "Invalid usage"                                            
+                echo "findup <path> <query>"                                                                                                                                                                                                             
+                return 1                                                        
+        fi                                                                      
+        path=$1                                                                 
+        key=${@: -1}                                                            
+        cur_path=$PWD                                                           
+        cd $path                                                                
+        while [ $PWD != "/" ]; do                                               
+                find $PWD -maxdepth 1 -iname "$key"                             
+                cd ..                                                           
+        done;                                                                   
+                                                                                
+        # remaining search on "/"                                               
+        find . -maxdepth 1 -iname $key                                          
+                                                                                
+        #restore to cur_path                                                    
+        cd $cur_path                                                            
+}   
+
 function mcom()
 {
 	minicom -D /dev/ttyUSB$1
