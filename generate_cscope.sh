@@ -14,7 +14,7 @@
                                                                                 
 if [ "$1" == "" ]; then                                                         
         echo "provide directories as argument"                                  
-        exit                                                                    
+        return
 fi                                                                              
                                                                                 
 if [ -f "/tmp/cscope.files.tmp" ]; then                                         
