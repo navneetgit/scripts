@@ -27,10 +27,10 @@ for i in "$@"; do
                 echo "dir ${i} doesn't exist, skipping"                         
                 continue                                                        
         fi                                                                      
-        find ${i} -name "*.c" -o -name "*.h" >> /tmp/cscope.files.tmp           
+        find ${i} -name "*.c" -o -name "*.h" -o -name "*.cpp" -o -name "*.m" | awk '{printf "\"%s\"\n", $0}' >> /tmp/cscope.files.tmp           
         echo "Building tags in ${i}"                                            
         cd ${i}                                                                 
-        ctags -R .                                                              
+		ctags -R .                                                              
         cd -                                                                    
         echo "Done!"                                                            
         echo "Succesfully processed ${i}"                                       
